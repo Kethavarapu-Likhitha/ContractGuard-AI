@@ -1,0 +1,11 @@
+1. Clause Detection
+   - Identifies interest, penalties, hidden fees
+
+2. Risk Classification
+   - Assigns Low, Medium, High risk
+
+3. Explanation Engine
+   - Converts legal terms into simple language
+
+4. Safety Feature
+   - Outputs "Cannot Determine" if unclear

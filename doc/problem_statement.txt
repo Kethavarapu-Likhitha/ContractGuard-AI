@@ -1,0 +1,4 @@
+Users often sign financial contracts without understanding hidden fees,
+penalties, and complex clauses, leading to financial loss.
+
+This application helps users analyze contracts and identify risks.

@@ -1,0 +1,7 @@
+1. User uploads PDF
+2. Backend extracts text
+3. AI analyzes contract
+4. Detect clauses
+5. Assign risk
+6. Generate explanation
+7. Return result to frontend

@@ -1,0 +1,9 @@
+Frontend (React)
+    ↓
+Backend (FastAPI)
+    ↓
+PDF Processing
+    ↓
+AI Analysis (OpenAI)
+    ↓
+Output (JSON)

@@ -1,0 +1,4 @@
+Frontend: React.js
+Backend: FastAPI
+AI Model: OpenAI GPT
+PDF Processing: pdfplumber

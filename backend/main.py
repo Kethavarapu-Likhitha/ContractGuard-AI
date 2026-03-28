@@ -1,7 +1,8 @@
 from fastapi import FastAPI, UploadFile, File
 import shutil
 from services.pdf_service import extract_text
-
+from services.ai_service import analyze_contract
+import json
 app = FastAPI()
 
 @app.get("/")
@@ -11,15 +12,28 @@ def home():
 @app.post("/upload")
 async def upload(file: UploadFile = File(...)):
 
-    # Save file temporarily
     file_path = f"temp_{file.filename}"
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    # Extract text
     text = extract_text(file_path)
 
-    return {
-        "filename": file.filename,
-        "extracted_text": text[:1000]  # limit output
-    }
+    try:
+        analysis = analyze_contract(text)
+
+        print("AI RESPONSE:", analysis)
+
+        try:
+            analysis_json = json.loads(analysis)
+        except Exception as e:
+            print("JSON ERROR:", e)
+            analysis_json = {"raw_output": analysis}
+
+        return {
+            "filename": file.filename,
+            "analysis": analysis_json
+        }
+
+    except Exception as e:
+        print("ERROR:", e)
+        return {"error": str(e)}
